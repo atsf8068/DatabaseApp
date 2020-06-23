@@ -1,39 +1,49 @@
+import DatabaseProgram.DatabaseCommands;
 import DatabaseProgram.JdbcSelectTest;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.sql.SQLException;
 
-
-public class LoginWindow {
-    static JFrame f;
-    private JPanel LoginPanel;
-    private JTextField username;
-    private JPasswordField password;
+public class LoginWindow extends JFrame {
+    private JTextField usernameField;
+    private JPasswordField passwordField;
     private JButton loginButton;
+    private JLabel usernameLabel;
+    private JLabel passwordLabel;
+    private JPanel panel1;
 
-    public LoginWindow() {
-        loginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    JdbcSelectTest selectTest = new JdbcSelectTest();
-                    System.out.println(password.getPassword());
-                    selectTest.selectTest(username.getText(), password.getPassword());
-                } catch (Exception exception) {
-                    exception.printStackTrace();
-                    JOptionPane.showMessageDialog(f, "Login Error", "Inane Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }
+    public LoginWindow(String title) {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setTitle(title);
+        panel1.setBackground(Color.BLUE);
+        this.setContentPane(panel1);
+        this.setSize(screenSize.width / 2, screenSize.height / 2);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+        usernameField.addActionListener(e -> passwordField.requestFocus());
+        passwordField.addActionListener(e -> {
+            // do the login procedure
+            loginSequence(usernameField.getText(), passwordField.getPassword());
         });
+        loginButton.addActionListener(e -> loginSequence(usernameField.getText(), passwordField.getPassword()));
+    }
+
+    private void loginSequence(String username, char[] password) {
+        try {
+            DatabaseCommands commands = new DatabaseCommands();
+            commands.getConnection(username, password);
+            // make a new window
+            this.dispose();
+            new MainWindow(commands, commands.loadTables());
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+            JOptionPane.showMessageDialog(LoginWindow.this, "Login Error", "Inane Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public static void main(String[] args) {
-        f = new JFrame("LoginWindow");
-        f.setContentPane(new LoginWindow().LoginPanel);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setSize(300, 150);
-        f.setLocationRelativeTo(null);
-        f.setVisible(true);
+        JFrame frame = new LoginWindow("LoginWindow");
+        frame.setVisible(true);
     }
 }

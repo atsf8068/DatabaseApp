@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="com.cedarsoft.commons.swing:jgoodies:8.9.2" type="repository">
+    <properties maven-id="com.cedarsoft.commons.swing:jgoodies:8.9.2" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/cedarsoft/commons/swing/jgoodies/8.9.2/jgoodies-8.9.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/cedarsoft/dependencies-sets/annotations/8.9.2/annotations-8.9.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/cedarsoft/annotations/8.9.2/annotations-8.9.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/jgoodies/jgoodies-binding/2.13.0/jgoodies-binding-2.13.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/jgoodies/jgoodies-common/1.8.1/jgoodies-common-1.8.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/jgoodies/jgoodies-validation/2.5.1/jgoodies-validation-2.5.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/glazedlists/glazedlists_java16/1.10.0/glazedlists_java16-1.10.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/miglayout/miglayout-swing/5.2/miglayout-swing-5.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/miglayout/miglayout-core/5.2/miglayout-core-5.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
