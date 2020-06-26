@@ -1,4 +1,4 @@
-package DatabaseProgram.DatabaseEntries;
+package Database.DatabaseEntries;
 
 public class Book {
     public int id, qty;

@@ -1,4 +1,4 @@
-import DatabaseProgram.DatabaseCommands;
+import Database.DatabaseCommands;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -48,15 +48,15 @@ public class AddEntryWindow extends JFrame{
             int qty = Integer.parseInt(QuantityField.getText());
             commands.insertEntry(id, title, author, price, qty);
             Object[] row = new Object[5];
-            row[0] = IDField.getText();
-            row[1] = TitleField.getText();
-            row[2] = AuthorField.getText();
-            row[3] = PriceField.getText();
-            row[4] = QuantityField.getText();
+            row[0] = id;
+            row[1] = title;
+            row[2] = author;
+            row[3] = price;
+            row[4] = qty;
             model.addRow(row);
             this.dispose();
         } catch (NumberFormatException throwable) {
-            JOptionPane.showMessageDialog(AddEntryWindow.this, "Entered a non number input in ID, price or quantity", "Input Type Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(AddEntryWindow.this, "Entered a non number input in ID, price or quantity", "Input Error", JOptionPane.ERROR_MESSAGE);
             throwable.printStackTrace();
         } catch (SQLException throwable) {
             throwable.printStackTrace();

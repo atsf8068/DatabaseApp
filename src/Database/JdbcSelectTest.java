@@ -1,6 +1,6 @@
-package DatabaseProgram;
+package Database;
 
-import DatabaseProgram.DatabaseEntries.Book;
+import Database.DatabaseEntries.Book;
 
 import java.sql.*;
 import java.util.ArrayList;

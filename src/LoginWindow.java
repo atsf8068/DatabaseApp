@@ -1,5 +1,4 @@
-import DatabaseProgram.DatabaseCommands;
-import DatabaseProgram.JdbcSelectTest;
+import Database.DatabaseCommands;
 
 import javax.swing.*;
 import java.awt.*;
